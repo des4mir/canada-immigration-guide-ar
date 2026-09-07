@@ -1,0 +1,8 @@
+{
+  "name": "دليل الهجرة إلى كندا للمصريين 2026",
+  "description": "دليل شامل للمصريين حول كيفية الهجرة إلى كندا في عام 2026، متضمناً مسارات الهجرة، الدراسة، التكاليف، وأفضل الجامعات.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
