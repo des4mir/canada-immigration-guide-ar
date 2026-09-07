@@ -11,7 +11,7 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <img src="/favicon.svg" alt="ورقة القيقب الكندية" className="h-10 w-auto" />
           <div>
-            <h1 className="text-xl font-bold tracking-tight text-[#D80621]">دليل الهجرة إلى كندا للمصريين 2026</h1>
+            <p className="text-xl font-bold tracking-tight text-[#D80621]">دليل الهجرة إلى كندا للمصريين 2026</p>
             <p className="text-base text-gray-500 hidden sm:block">مرجعك الشامل والمحدث للتقديم والانتقال</p>
           </div>
         </div>
