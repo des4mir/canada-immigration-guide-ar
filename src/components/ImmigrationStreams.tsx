@@ -61,7 +61,7 @@ export default function ImmigrationStreams() {
                 <strong>مقاطعة بريتش كولومبيا (BC):</strong> تمت إعادة هيكلة النظام إلى ثلاثة أعمدة رئيسية: <strong>CARE</strong> (للرعاية الصحية)، <strong>BUILD</strong> (لـ 9 حرف بناء أساسية)، و <strong>INNOVATE</strong>. كما تم حجز <strong>35% من الترشيحات</strong> للمتقدمين خارج منطقة فانكوفر الكبرى.
               </p>
               <p>
-                <strong>مقاطعة أونتاريو (OINP):</strong> اعتباراً من 30 مايو 2026، أطلقت المقاطعة 4 مسارات جديدة مدمجة تشمل: <strong>عرض العمل</strong> (Employer Job Offer)، <strong>الرعاية الصحية ذات الأولوية</strong>، <strong>رائد الأعمال</strong>، و<strong>المواهب الاستثنائية</strong>.
+                <strong>مقاطعة أونتاريو (OINP):</strong> اعتباراً من 30 مايو 2026، أطلقت المقاطعة رسمياً مسار <strong>عرض العمل</strong> (Ontario Workforce Priority Stream). ومن المخطط إطلاق ثلاثة مسارات أخرى لاحقاً تشمل: <strong>الرعاية الصحية ذات الأولوية</strong>، <strong>رائد الأعمال</strong>، و<strong>المواهب الاستثنائية</strong>.
               </p>
               <p>
                 <strong>المسارات التقنية (Tech NOCs):</strong> يحصل العاملون في التكنولوجيا على مسارات سريعة مخصصة. فمثلاً، يستهدف برنامج <strong>BC PNP Tech</strong> (بسحوبات أسبوعية) مهندسي البرمجيات (NOC 21231)، المبرمجين (21230)، ومهندسي البيانات (21211).

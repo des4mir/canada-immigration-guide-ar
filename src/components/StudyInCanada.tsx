@@ -35,7 +35,7 @@ export default function StudyInCanada() {
 
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-5 text-base text-gray-700 leading-relaxed space-y-3">
               <p>
-                <strong>شروط اللغة (منذ نوفمبر 2024 ومستمرة في 2026):</strong> يشترط على جميع المتقدمين لـ PGWP إثبات كفاءة لغوية لا تقل عن <strong>CLB 7</strong> في الإنجليزية أو <strong>NCLC 7</strong> في الفرنسية (في جميع المهارات الأربع).
+                <strong>شروط اللغة (منذ نوفمبر 2024 ومستمرة في 2026):</strong> يشترط على خريجي <strong>الدرجات الجامعية (البكالوريوس فأعلى)</strong> إثبات كفاءة لغوية لا تقل عن <strong>CLB/NCLC 7</strong>. أما لخريجي <strong>الكليات والدبلومات والشهادات</strong>، فالحد الأدنى هو <strong>CLB/NCLC 5</strong> (في جميع المهارات الأربع).
               </p>
               <p>
                 <strong>شروط التخصصات:</strong> خريجو <strong>الدرجات العلمية (البكالوريوس فأعلى)</strong> مؤهلون للحصول على التصريح بغض النظر عن مجال دراستهم. في المقابل، خريجو <strong>الدبلومات والشهادات (الكليات)</strong> يجب أن يكونوا قد أكملوا برامجهم في مجالات معتمدة (CIP code).
