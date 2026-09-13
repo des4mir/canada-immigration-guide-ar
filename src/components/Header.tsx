@@ -17,7 +17,7 @@ export default function Header() {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6 text-base font-medium">
+        <nav className="hidden lg:flex items-center gap-6 text-base font-medium">
           {navLinks.map((link) => (
             <a 
               key={link.name} 
@@ -27,14 +27,21 @@ export default function Header() {
               {link.name}
             </a>
           ))}
-          <a href="#assessment" className="bg-[#D80621] text-white px-4 py-2 rounded-md shadow-sm hover:bg-red-700 transition-colors">
+          <a 
+            href="#assessment" 
+            onClick={(e) => {
+              e.preventDefault();
+              window.dispatchEvent(new CustomEvent('open-chatbot', { detail: { message: 'أريد إجراء تقييم لفرص هجرتي إلى كندا' } }));
+            }}
+            className="bg-[#D80621] text-white px-4 py-2 rounded-md shadow-sm hover:bg-red-700 transition-colors"
+          >
             ابدأ تقييمك الآن
           </a>
         </nav>
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden p-2 text-gray-600"
+            className="lg:hidden p-2 text-gray-600"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -43,7 +50,7 @@ export default function Header() {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-lg">
+        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-lg">
           <nav className="flex flex-col p-4">
             {navLinks.map((link) => {
               const Icon = link.icon;

@@ -23,7 +23,7 @@ export default function StudyInCanada() {
   return (
     <section id="study" className="py-6 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col md:flex-row gap-6 items-center">
+        <div className="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col lg:flex-row gap-6 lg:items-stretch">
           
           {/* Content */}
           <div className="flex-1 w-full">
@@ -82,7 +82,7 @@ export default function StudyInCanada() {
           
           {/* Image/Graphic */}
           <div className="flex-1 w-full relative">
-            <div className="aspect-[4/3] md:aspect-auto md:h-64 rounded-xl overflow-hidden bg-gray-100 border border-gray-200">
+            <div className="aspect-[4/3] lg:aspect-auto lg:absolute lg:inset-0 rounded-xl overflow-hidden bg-gray-100 border border-gray-200">
               <img 
                 src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070&auto=format&fit=crop" 
                 alt="طلاب في جامعة كندية" 

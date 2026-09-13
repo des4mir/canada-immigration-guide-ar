@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { MessageSquare, X, Send, Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import Markdown from "react-markdown";
 
 type Role = "user" | "model";
 
@@ -16,15 +17,42 @@ export default function Chatbot() {
   ]);
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const [userScrolled, setUserScrolled] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  const scrollToBottom = (behavior: ScrollBehavior = "smooth") => {
+    messagesEndRef.current?.scrollIntoView({ behavior });
   };
 
   useEffect(() => {
-    scrollToBottom();
-  }, [messages, isTyping]);
+    if (!userScrolled) {
+      // Use 'auto' instead of 'smooth' during rapid updates to avoid jerky animations
+      scrollToBottom(isTyping ? "auto" : "smooth");
+    }
+  }, [messages, isTyping, userScrolled]);
+
+  const handleScroll = () => {
+    const container = chatContainerRef.current;
+    if (container) {
+      // Check if user is near the bottom
+      const isAtBottom = Math.abs(container.scrollHeight - container.scrollTop - container.clientHeight) < 50;
+      setUserScrolled(!isAtBottom);
+    }
+  };
+
+  useEffect(() => {
+    const handleOpenChatbot = (e: CustomEvent) => {
+      setIsOpen(true);
+      // Optional: If we want to pre-fill or send a message
+      if (e.detail?.message) {
+        setInputValue(e.detail.message);
+      }
+    };
+
+    window.addEventListener('open-chatbot' as any, handleOpenChatbot);
+    return () => window.removeEventListener('open-chatbot' as any, handleOpenChatbot);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,6 +60,7 @@ export default function Chatbot() {
 
     const userMsg = inputValue.trim();
     setInputValue("");
+    setUserScrolled(false);
     
     // Add user message to UI
     const updatedMessages = [...messages, { role: "user" as Role, text: userMsg }];
@@ -135,7 +164,11 @@ export default function Chatbot() {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 bg-gray-50 flex flex-col gap-3">
+            <div 
+              ref={chatContainerRef}
+              onScroll={handleScroll}
+              className="flex-1 overflow-y-auto p-4 bg-gray-50 flex flex-col gap-3"
+            >
               {messages.map((msg, idx) => (
                 <div 
                   key={idx} 
@@ -147,7 +180,27 @@ export default function Chatbot() {
                       ? "bg-[#D80621] text-white rounded-tr-none" 
                       : "bg-white border border-gray-200 text-gray-800 rounded-tl-none shadow-sm"
                   }`}>
-                    {msg.text}
+                    {msg.role === "user" ? (
+                      msg.text
+                    ) : (
+                      <div className="markdown-body space-y-2">
+                        <Markdown
+                          components={{
+                            p: ({node, ...props}) => <p className="mb-2 last:mb-0" {...props} />,
+                            strong: ({node, ...props}) => <strong className="font-bold text-gray-900" {...props} />,
+                            ul: ({node, ...props}) => <ul className="list-disc ms-5 mb-2 space-y-1" {...props} />,
+                            ol: ({node, ...props}) => <ol className="list-decimal ms-5 mb-2 space-y-1" {...props} />,
+                            li: ({node, ...props}) => <li className="" {...props} />,
+                            h1: ({node, ...props}) => <h1 className="font-bold text-lg mb-2 mt-4" {...props} />,
+                            h2: ({node, ...props}) => <h2 className="font-bold text-base mb-2 mt-3" {...props} />,
+                            h3: ({node, ...props}) => <h3 className="font-bold text-base mb-2 mt-3" {...props} />,
+                            a: ({node, ...props}) => <a className="text-blue-600 underline hover:text-blue-800" {...props} />,
+                          }}
+                        >
+                          {msg.text}
+                        </Markdown>
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
